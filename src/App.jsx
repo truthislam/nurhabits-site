@@ -259,7 +259,7 @@ export default function App() {
           maxWidth: "440px", lineHeight: 1.7, marginTop: "20px", fontWeight: 300,
           animation: "fadeUp 0.8s ease 0.3s both",
         }}>
-          One brother. Twelve books. No fluff. No courses. Just the walk.
+          The 12 best self-development books on earth. Filtered through Qur'an and Sunnah. One book a month. Crystal clear. No fluff.
         </p>
 
         <a href={STRIPE_LINK} target="_blank" rel="noopener noreferrer"
@@ -274,6 +274,13 @@ export default function App() {
           The Game of Life and How to Play It — Muslim Reader's Companion
         </p>
 
+        <p style={{
+          marginTop: "20px", fontSize: "13px", color: "rgba(212,168,83,0.45)",
+          fontWeight: 500, animation: "fadeUp 0.8s ease 0.65s both",
+        }}>
+          Current balance: <span style={{ color: "#D4A853", fontWeight: 700 }}>$21.67</span> — <a href="#walk" style={{ color: "rgba(212,168,83,0.6)", textDecoration: "underline", textUnderlineOffset: "3px" }}>see my real bank account</a>
+        </p>
+
         <div style={{
           position: "absolute", bottom: "28px", left: "50%", transform: "translateX(-50%)",
           animation: "breathe 2.5s ease infinite",
@@ -284,66 +291,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* ===== WHO I AM ===== */}
-      <section style={{ position: "relative", zIndex: 1 }}>
-        <Divider />
-        <div style={{ maxWidth: "640px", margin: "0 auto", padding: "0 24px 0" }}>
-
-          <Reveal>
-            <p style={{
-              fontSize: "11px", color: "rgba(212,168,83,0.5)", letterSpacing: "4px",
-              textTransform: "uppercase", fontWeight: 700, marginBottom: "32px",
-            }}>Who I Am</p>
-          </Reveal>
-
-          <Reveal delay={80}>
-            <p className="story-line">I'm Kassim. Somali-American.</p>
-          </Reveal>
-          <Reveal delay={140}>
-            <p className="story-line" style={{ marginTop: "20px" }}>
-              I landed in Egypt on January 1, 2020 expecting to stay a few weeks.
-            </p>
-          </Reveal>
-
-          <Reveal delay={200}>
-            <p className="story-line" style={{ marginTop: "28px" }}>
-              I didn't come seeking knowledge. Allah called me to it. The whole year before, my heart was yearning for Africa like something was pulling me toward my awakening. I discovered what it means to pray five times a day at the masjid. To stand in the first row. To make night prayers. To do things in private for the sake of Allah alone.
-            </p>
-          </Reveal>
-
-          <Reveal delay={260}>
-            <p className="story-line" style={{ marginTop: "28px" }}>
-              I got my wife through those nightly prayers. A woman who pushes me to the masjid. Who values what Allah gave us as man and wife. My rock.
-            </p>
-          </Reveal>
-
-          <Reveal delay={320}>
-            <p className="story-line" style={{ marginTop: "28px" }}>
-              I went back to the US three times. Every time I left, I lost what mattered most. My connection with Allah. Every time I came back with less money. $6,000. Then $2,000. Then $1,800. Leaving my deen to chase dollars. Then crawling back broke but alive again.
-            </p>
-          </Reveal>
-
-          <Reveal delay={380}>
-            <div style={{
-              marginTop: "40px", padding: "28px 0 28px 28px",
-              borderLeft: "3px solid rgba(212,168,83,0.35)",
-            }}>
-              <p style={{
-                fontSize: "clamp(19px, 3vw, 24px)", fontWeight: 600,
-                color: "rgba(255,255,255,0.85)", lineHeight: 1.6,
-                fontFamily: "'Playfair Display', serif", fontStyle: "italic",
-              }}>
-                Then a brother my age died in a car crash. We are not promised tomorrow.
-              </p>
-              <p className="story-line" style={{ marginTop: "20px" }}>
-                So I made istikhara with my wife and we committed. We are staying in Egypt. I had $0.14 to my name. I would rather perish here broke than crush my iman for mere human gain.
-              </p>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ===== WHY THIS EXISTS ===== */}
+      {/* ===== WHAT YOU GET ===== */}
       <section style={{ position: "relative", zIndex: 1 }}>
         <Divider />
         <div style={{ maxWidth: "640px", margin: "0 auto", padding: "0 24px" }}>
@@ -352,66 +300,90 @@ export default function App() {
             <p style={{
               fontSize: "11px", color: "rgba(212,168,83,0.5)", letterSpacing: "4px",
               textTransform: "uppercase", fontWeight: 700, marginBottom: "32px",
-            }}>Why This Exists</p>
+            }}>What You Get</p>
           </Reveal>
 
           <Reveal delay={80}>
+            <p style={{
+              fontSize: "clamp(22px, 4vw, 32px)", fontWeight: 800, color: "#fff",
+              lineHeight: 1.3, marginBottom: "12px",
+            }}>Clarity.</p>
             <p className="story-line">
-              I watched a brother on YouTube promise to show Muslims how to make $100 a day. Seventeen minutes later I had nothing. No real steps. Just a course to buy.
+              You get to read the best self-development books on earth and know exactly where they align with your deen and where they don't. No guessing. No guilt. No "is this even halal to think about?"
             </p>
           </Reveal>
 
           <Reveal delay={160}>
             <p style={{
-              fontSize: "clamp(20px, 3.5vw, 28px)", fontWeight: 700, color: "#D4A853",
-              lineHeight: 1.5, marginTop: "36px", fontFamily: "'Playfair Display', serif",
-            }}>
-              Where is the ihsan?
-            </p>
-            <p className="story-line" style={{ marginTop: "16px" }}>
-              Where is the excellence our deen demands? Why does Alex Hormozi, a non-Muslim, give more substance in one video than brothers who open with bismillah?
+              fontSize: "clamp(22px, 4vw, 32px)", fontWeight: 800, color: "#fff",
+              lineHeight: 1.3, marginTop: "40px", marginBottom: "12px",
+            }}>Your perfect self-expression.</p>
+            <p className="story-line">
+              Allah created you for something no one else can do. Book 1 is built around finding it. A 4-week workshop with du'as, istikhara assignments, and honest questions most brothers never sit with. Not motivation. Excavation.
             </p>
           </Reveal>
 
           <Reveal delay={240}>
-            <p className="story-line" style={{ marginTop: "28px" }}>
-              That question keeps me up at night. That question is why NurHabits exists.
+            <p style={{
+              fontSize: "clamp(22px, 4vw, 32px)", fontWeight: 800, color: "#fff",
+              lineHeight: 1.3, marginTop: "40px", marginBottom: "12px",
+            }}>Permission to be unequivocally you.</p>
+            <p className="story-line">
+              Every Amber section flags where the author's theology is shirk. Every Green section shows you the Islamic truth underneath. You don't have to choose between secular wisdom and your deen. You just needed someone to sort it for you.
             </p>
           </Reveal>
 
           <Reveal delay={320}>
-            <p className="story-line" style={{ marginTop: "28px" }}>
-              Twelve books. Twelve months. The best self-development books on earth filtered through Qur'an and Sunnah. Not vague motivation. Real lessons. Crystal clear.
-            </p>
+            <div style={{
+              marginTop: "48px", padding: "28px 24px",
+              background: "rgba(255,255,255,0.02)",
+              border: "1px solid rgba(255,255,255,0.05)",
+              borderRadius: "12px",
+            }}>
+              <p style={{
+                fontSize: "12px", color: "rgba(212,168,83,0.5)", letterSpacing: "2px",
+                textTransform: "uppercase", fontWeight: 700, marginBottom: "20px",
+              }}>Inside every guide</p>
+              <div style={{ display: "grid", gap: "12px" }}>
+                {[
+                  { color: "#e74c3c", text: "Author's core ideas, distilled" },
+                  { color: "#27ae60", text: "Every concept reframed through Qur'an and Sunnah" },
+                  { color: "#D4A853", text: "Qur'anic ayat with tafsir from Ibn Kathir, Al-Qurtubi, and others" },
+                  { color: "#3498db", text: "Hadith and Prophetic examples" },
+                  { color: "#d4880a", text: "Where Islam diverges. No sugarcoating." },
+                  { color: "#9b59b6", text: "Challenge tiers and real assignments" },
+                ].map((item, i) => (
+                  <div key={i} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                    <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: item.color, flexShrink: 0 }} />
+                    <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.55)", fontWeight: 400 }}>{item.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </Reveal>
 
           <Reveal delay={400}>
-            <p className="story-line" style={{ marginTop: "28px" }}>
-              I'm not your teacher. I'm not your guru. I'm your brother doing this alongside you. From $0.14 to freedom. Full transparency. The rizq of Allah is vast. There is enough for us all.
+            <p style={{
+              marginTop: "28px", fontSize: "14px", color: "rgba(255,255,255,0.3)",
+              textAlign: "center", fontWeight: 400,
+            }}>
+              Written at a 5th grade reading level. Crystal clear. No fluff.
             </p>
           </Reveal>
 
-          <Reveal delay={480}>
-            <div style={{
-              marginTop: "48px", padding: "32px",
-              background: "rgba(212,168,83,0.04)",
-              border: "1px solid rgba(212,168,83,0.12)",
-              borderRadius: "12px", textAlign: "center",
-            }}>
-              <p style={{
-                fontSize: "clamp(18px, 3vw, 24px)", fontWeight: 600,
-                color: "#D4A853", lineHeight: 1.5,
-                fontFamily: "'Playfair Display', serif", fontStyle: "italic",
-              }}>
-                No man is your enemy. No man is your friend. Every man is your teacher.
-              </p>
+          <Reveal delay={440}>
+            <div style={{ textAlign: "center", marginTop: "36px" }}>
+              <a href={STRIPE_LINK} target="_blank" rel="noopener noreferrer"
+                className="cta-main">
+                Get Book 1 — $19
+              </a>
             </div>
           </Reveal>
         </div>
       </section>
 
       {/* ===== THE WALK — PUBLIC LEDGER ===== */}
-      <section style={{ position: "relative", zIndex: 1 }}>
+      <section id="walk" style={{ position: "relative", zIndex: 1 }}>
         <Divider />
         <div style={{ maxWidth: "640px", margin: "0 auto", padding: "0 24px" }}>
 
@@ -421,12 +393,12 @@ export default function App() {
               textTransform: "uppercase", fontWeight: 700, marginBottom: "16px",
             }}>The Walk</p>
             <h2 style={{
-              fontSize: "clamp(24px, 4vw, 36px)", fontWeight: 800, color: "#fff", lineHeight: 1.1, marginBottom: "8px",
+              fontSize: "clamp(24px, 4vw, 36px)", fontWeight: 800, color: "#fff", lineHeight: 1.1, marginBottom: "12px",
             }}>
-              From $0.14 to Freedom.
+              My real bank account. In public.
             </h2>
-            <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "14px", marginBottom: "40px" }}>
-              Every dollar in. Every dollar out. No hiding.
+            <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "15px", lineHeight: 1.6, marginBottom: "40px", maxWidth: "520px" }}>
+              I started NurHabits with $0.14. This is every dollar in and every dollar out. No hiding. We grow together or not at all.
             </p>
           </Reveal>
 
@@ -554,6 +526,92 @@ export default function App() {
         </div>
       </section>
 
+      {/* ===== WHO I AM (condensed, after offer) ===== */}
+      <section style={{ position: "relative", zIndex: 1 }}>
+        <Divider />
+        <div style={{ maxWidth: "640px", margin: "0 auto", padding: "0 24px" }}>
+
+          <Reveal>
+            <p style={{
+              fontSize: "11px", color: "rgba(212,168,83,0.5)", letterSpacing: "4px",
+              textTransform: "uppercase", fontWeight: 700, marginBottom: "32px",
+            }}>Who I Am</p>
+          </Reveal>
+
+          <Reveal delay={80}>
+            <p className="story-line">I'm Kassim. Somali-American. Landed in Egypt January 1, 2020.</p>
+          </Reveal>
+
+          <Reveal delay={160}>
+            <p className="story-line" style={{ marginTop: "24px" }}>
+              I left three times. Spent most of the year chasing dollars in the US. Came back with $6,000. Then $2,000. Then $1,800. Less money every time. Further from Allah every time.
+            </p>
+          </Reveal>
+
+          <Reveal delay={240}>
+            <p className="story-line" style={{ marginTop: "24px" }}>
+              Then Allah called me back. I discovered what it means to pray five times a day at the masjid. To stand in the first row. To do things in private for the sake of Allah alone.
+            </p>
+          </Reveal>
+
+          <Reveal delay={320}>
+            <div style={{
+              marginTop: "36px", padding: "28px 0 28px 28px",
+              borderLeft: "3px solid rgba(212,168,83,0.35)",
+            }}>
+              <p style={{
+                fontSize: "clamp(19px, 3vw, 24px)", fontWeight: 600,
+                color: "rgba(255,255,255,0.85)", lineHeight: 1.6,
+                fontFamily: "'Playfair Display', serif", fontStyle: "italic",
+              }}>
+                Then a brother my age died in a car crash. We are not promised tomorrow.
+              </p>
+              <p className="story-line" style={{ marginTop: "20px" }}>
+                So I made istikhara with my wife and we committed. We are staying in Egypt. I had $0.14 to my name. I would rather perish here broke than crush my iman for mere human gain.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ===== WHY THIS EXISTS (condensed, Hormozi removed) ===== */}
+      <section style={{ position: "relative", zIndex: 1 }}>
+        <Divider />
+        <div style={{ maxWidth: "640px", margin: "0 auto", padding: "0 24px" }}>
+
+          <Reveal>
+            <p style={{
+              fontSize: "11px", color: "rgba(212,168,83,0.5)", letterSpacing: "4px",
+              textTransform: "uppercase", fontWeight: 700, marginBottom: "32px",
+            }}>Why This Exists</p>
+          </Reveal>
+
+          <Reveal delay={80}>
+            <p className="story-line">
+              I watched a brother on YouTube promise to show Muslims how to make $100 a day. Seventeen minutes later I had nothing. No real steps. Just a course to buy.
+            </p>
+          </Reveal>
+
+          <Reveal delay={160}>
+            <p style={{
+              fontSize: "clamp(20px, 3.5vw, 28px)", fontWeight: 700, color: "#D4A853",
+              lineHeight: 1.5, marginTop: "36px", fontFamily: "'Playfair Display', serif",
+            }}>
+              Where is the ihsan?
+            </p>
+            <p className="story-line" style={{ marginTop: "16px" }}>
+              Where is the excellence our deen demands? Why do non-Muslims outwork us in giving real value? That question keeps me up at night. That question is why NurHabits exists.
+            </p>
+          </Reveal>
+
+          <Reveal delay={240}>
+            <p className="story-line" style={{ marginTop: "28px" }}>
+              I'm not your teacher. I'm not your guru. I'm your brother doing this alongside you. Full transparency. The rizq of Allah is vast. There is enough for us all.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ===== EMAIL CAPTURE ===== */}
       <section id="join" style={{ position: "relative", zIndex: 1, scrollMarginTop: "70px" }}>
         <Divider />
@@ -565,7 +623,7 @@ export default function App() {
               lineHeight: 1.1, marginBottom: "16px",
             }}>Join The Walk</h2>
             <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "15px", lineHeight: 1.6, marginBottom: "36px" }}>
-              New book drops monthly. No spam. Just the next step.
+              Get the monthly breakdown when each new book drops. Straight to your inbox. No spam. No courses. Just the next step.
             </p>
           </Reveal>
 
