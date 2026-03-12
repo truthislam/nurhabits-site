@@ -331,7 +331,7 @@ export default function App() {
               Where is the ihsan?
             </p>
             <p className="story-line" style={{ marginTop: "12px" }}>
-              Where is the excellence our deen demands?
+              Where is the excellence our deen demands? There is no bait here. No empty video. No upsell. The study guide is the work. You pay, you get it, you use it. That is ihsan.
             </p>
           </Reveal>
         </div>
@@ -441,17 +441,118 @@ export default function App() {
           </Reveal>
 
           <Reveal delay={400}>
-            <div style={{ textAlign: "center", marginTop: "40px" }}>
-              <a href={STRIPE_LINK} target="_blank" rel="noopener noreferrer"
-                className="cta-main">
-                Start With Book 1 — $19
-              </a>
+            <div style={{
+              marginTop: "48px", padding: "36px 28px",
+              background: "linear-gradient(160deg, rgba(212,168,83,0.06) 0%, rgba(26,26,46,0.98) 60%)",
+              border: "1.5px solid rgba(212,168,83,0.3)",
+              borderRadius: "16px",
+            }}>
+
+              {/* --- DREAM OUTCOME --- */}
               <p style={{
-                marginTop: "12px", fontSize: "12px", color: "rgba(255,255,255,0.25)",
-                fontWeight: 400,
+                fontSize: "clamp(20px, 3.5vw, 26px)", fontWeight: 800, color: "#fff",
+                lineHeight: 1.3, textAlign: "center", marginBottom: "8px",
+              }}>Read any self-help book with a clean heart.</p>
+              <p style={{
+                fontSize: "14px", color: "rgba(255,255,255,0.4)", textAlign: "center",
+                lineHeight: 1.6, marginBottom: "36px", maxWidth: "440px", margin: "0 auto 36px",
               }}>
-                The Game of Life and How to Play It — Muslim Reader's Companion
+                Know exactly what aligns with your deen. Know exactly what doesn't. No guilt. No guessing. No compromise.
               </p>
+
+              {/* --- EFFORT REDUCTION: Done for you --- */}
+              <p style={{
+                fontSize: "12px", color: "rgba(212,168,83,0.5)", letterSpacing: "2px",
+                textTransform: "uppercase", fontWeight: 700, marginBottom: "20px",
+              }}>The work is already done for you</p>
+
+              <div style={{ display: "grid", gap: "14px" }}>
+                {[
+                  "You do not need to read the original book first",
+                  "You do not need to cross-reference scholars yourself",
+                  "You do not need to check hadith authenticity",
+                  "You do not need to figure out what is shirk and what is wisdom",
+                  "It is sorted. You open it and start.",
+                ].map((item, i) => (
+                  <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
+                    <span style={{ color: "#D4A853", fontSize: "16px", lineHeight: 1.6, flexShrink: 0 }}>&#10003;</span>
+                    <span style={{ fontSize: "15px", color: "rgba(255,255,255,0.65)", lineHeight: 1.6, fontWeight: 400 }}>{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* --- LIKELIHOOD: What's inside --- */}
+              <div style={{
+                marginTop: "32px", paddingTop: "28px",
+                borderTop: "1px solid rgba(255,255,255,0.06)",
+              }}>
+                <p style={{
+                  fontSize: "12px", color: "rgba(212,168,83,0.5)", letterSpacing: "2px",
+                  textTransform: "uppercase", fontWeight: 700, marginBottom: "20px",
+                }}>What is inside Book 1</p>
+
+                <div style={{ display: "grid", gap: "12px" }}>
+                  {[
+                    "5 full chapters reframed through Qur'an and Sunnah",
+                    "Tafsir from Ibn Kathir, Al-Qurtubi, and Ibn Taymiyyah",
+                    "Authenticated hadith tied to every core lesson",
+                    "Every theological problem flagged and corrected in plain language",
+                    "A 4-week guided workshop to find your perfect self-expression",
+                    "Du'as written out for you. Istikhara assignments. Weekly trackers.",
+                    "Written at a 5th grade reading level so nothing is vague",
+                  ].map((item, i) => (
+                    <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
+                      <span style={{ color: "#D4A853", fontSize: "14px", lineHeight: 1.6, flexShrink: 0 }}>&#10003;</span>
+                      <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.55)", lineHeight: 1.6, fontWeight: 400 }}>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* --- TIME DELAY: Instant access --- */}
+              <div style={{
+                marginTop: "28px", padding: "20px 24px",
+                background: "rgba(212,168,83,0.04)",
+                border: "1px solid rgba(212,168,83,0.12)",
+                borderRadius: "10px",
+                textAlign: "center",
+              }}>
+                <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.6)", fontWeight: 500 }}>
+                  Instant download. You can start reading before your next salah.
+                </p>
+              </div>
+
+              {/* --- CTA --- */}
+              <div style={{ textAlign: "center", marginTop: "32px" }}>
+                <a href={STRIPE_LINK} target="_blank" rel="noopener noreferrer"
+                  className="cta-main" style={{ fontSize: "18px", padding: "20px 52px" }}>
+                  Get Book 1 — $19
+                </a>
+                <p style={{
+                  marginTop: "10px", fontSize: "12px", color: "rgba(255,255,255,0.25)",
+                  fontWeight: 400,
+                }}>
+                  The Game of Life and How to Play It — Muslim Reader's Companion
+                </p>
+              </div>
+
+              {/* --- RISK REVERSAL: Guarantee --- */}
+              <div style={{
+                marginTop: "28px", paddingTop: "24px",
+                borderTop: "1px solid rgba(255,255,255,0.06)",
+                textAlign: "center",
+              }}>
+                <p style={{
+                  fontSize: "13px", color: "rgba(212,168,83,0.45)", letterSpacing: "1.5px",
+                  textTransform: "uppercase", fontWeight: 700, marginBottom: "12px",
+                }}>Full money-back guarantee</p>
+                <p style={{
+                  fontSize: "14px", color: "rgba(255,255,255,0.45)", lineHeight: 1.7, fontWeight: 400,
+                  maxWidth: "440px", margin: "0 auto",
+                }}>
+                  If this guide does not change how you read secular books as a Muslim, email me. Full refund. No questions. No hard feelings. I would rather return your money than take a single dollar without delivering value. That is my covenant with you and with Allah.
+                </p>
+              </div>
             </div>
           </Reveal>
         </div>
