@@ -214,10 +214,11 @@ export default function App() {
         }}>NURHABITS</span>
         <div style={{ display: "flex", gap: "28px", alignItems: "center" }}>
           {[
+            { label: "Blog", href: "https://nurhabits.substack.com/", external: true },
             { label: "Books", href: "#journey" },
             { label: "Join", href: "#join" },
           ].map(link => (
-            <a key={link.label} href={link.href} style={{
+            <a key={link.label} href={link.href} target={link.external ? "_blank" : undefined} rel={link.external ? "noopener noreferrer" : undefined} style={{
               color: "rgba(255,255,255,0.5)", textDecoration: "none",
               fontSize: "13px", fontWeight: 500, letterSpacing: "0.5px", transition: "color 0.3s",
             }}
@@ -535,4 +536,3 @@ export default function App() {
     </div>
   );
 }
-
