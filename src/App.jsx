@@ -256,10 +256,10 @@ export default function App() {
 
         <p style={{
           fontSize: "clamp(15px, 2.5vw, 18px)", color: "rgba(255,255,255,0.45)",
-          maxWidth: "440px", lineHeight: 1.7, marginTop: "20px", fontWeight: 300,
+          maxWidth: "460px", lineHeight: 1.7, marginTop: "20px", fontWeight: 300,
           animation: "fadeUp 0.8s ease 0.3s both",
         }}>
-          The 12 best self-development books on earth. Filtered through Qur'an and Sunnah. One book a month. Crystal clear. No fluff.
+          I made hijrah with $0.14. Now I'm reading the 12 best self-development books on earth and filtering every lesson through Qur'an and Sunnah. One book a month. No fluff.
         </p>
 
         <a href={STRIPE_LINK} target="_blank" rel="noopener noreferrer"
@@ -395,10 +395,10 @@ export default function App() {
             <h2 style={{
               fontSize: "clamp(24px, 4vw, 36px)", fontWeight: 800, color: "#fff", lineHeight: 1.1, marginBottom: "12px",
             }}>
-              My real bank account. In public.
+              $0.14 and a hijrah.
             </h2>
             <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "15px", lineHeight: 1.6, marginBottom: "40px", maxWidth: "520px" }}>
-              I started NurHabits with $0.14. This is every dollar in and every dollar out. No hiding. We grow together or not at all.
+              This is my real bank account. Every dollar in and every dollar out. No hiding. We grow together or not at all.
             </p>
           </Reveal>
 
