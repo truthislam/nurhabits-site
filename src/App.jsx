@@ -229,7 +229,7 @@ export default function App() {
         </div>
       </nav>
 
-      {/* ===== HERO ===== */}
+      {/* ===== 1. HERO — Talk to HIM ===== */}
       <section style={{
         minHeight: "100vh", display: "flex", flexDirection: "column",
         alignItems: "center", justifyContent: "center",
@@ -255,31 +255,24 @@ export default function App() {
         </h1>
 
         <p style={{
-          fontSize: "clamp(15px, 2.5vw, 18px)", color: "rgba(255,255,255,0.45)",
-          maxWidth: "460px", lineHeight: 1.7, marginTop: "20px", fontWeight: 300,
+          fontSize: "clamp(15px, 2.5vw, 18px)", color: "rgba(255,255,255,0.5)",
+          maxWidth: "480px", lineHeight: 1.7, marginTop: "20px", fontWeight: 300,
           animation: "fadeUp 0.8s ease 0.3s both",
         }}>
-          I made hijrah with $0.14. Now I'm reading the 12 best self-development books on earth and filtering every lesson through Qur'an and Sunnah. One book a month. No fluff.
+          You read self-help books. You feel the power in them. But something in your gut tells you not everything lines up with your deen. You're right. It doesn't.
         </p>
 
-        <a href={STRIPE_LINK} target="_blank" rel="noopener noreferrer"
-          className="cta-main" style={{ marginTop: "36px", animation: "fadeUp 0.8s ease 0.45s both" }}>
-          Start With Book 1 — $19
+        <a href="#the-problem" style={{
+          marginTop: "36px", animation: "fadeUp 0.8s ease 0.45s both",
+          fontSize: "15px", color: "#D4A853", textDecoration: "none",
+          fontWeight: 600, letterSpacing: "0.3px",
+          transition: "opacity 0.3s",
+        }}
+        onMouseEnter={e => e.currentTarget.style.opacity = "0.7"}
+        onMouseLeave={e => e.currentTarget.style.opacity = "1"}
+        >
+          Keep reading ↓
         </a>
-
-        <p style={{
-          marginTop: "14px", fontSize: "12px", color: "rgba(255,255,255,0.25)",
-          fontWeight: 400, animation: "fadeUp 0.8s ease 0.55s both",
-        }}>
-          The Game of Life and How to Play It — Muslim Reader's Companion
-        </p>
-
-        <p style={{
-          marginTop: "20px", fontSize: "13px", color: "rgba(212,168,83,0.45)",
-          fontWeight: 500, animation: "fadeUp 0.8s ease 0.65s both",
-        }}>
-          Current balance: <span style={{ color: "#D4A853", fontWeight: 700 }}>$21.67</span> — <a href="#walk" style={{ color: "rgba(212,168,83,0.6)", textDecoration: "underline", textUnderlineOffset: "3px" }}>see my real bank account</a>
-        </p>
 
         <div style={{
           position: "absolute", bottom: "28px", left: "50%", transform: "translateX(-50%)",
@@ -291,7 +284,60 @@ export default function App() {
         </div>
       </section>
 
-      {/* ===== WHAT YOU GET ===== */}
+      {/* ===== 2. THE PROBLEM — Name the enemy ===== */}
+      <section id="the-problem" style={{ position: "relative", zIndex: 1, scrollMarginTop: "70px" }}>
+        <Divider />
+        <div style={{ maxWidth: "640px", margin: "0 auto", padding: "0 24px" }}>
+
+          <Reveal>
+            <p className="story-line">
+              You picked up Atomic Habits and it changed how you think. You read The 7 Habits and it made you sharper. You felt something shift. Then a quiet voice asked:
+            </p>
+          </Reveal>
+
+          <Reveal delay={100}>
+            <p style={{
+              fontSize: "clamp(22px, 4vw, 32px)", fontWeight: 700, color: "#D4A853",
+              lineHeight: 1.4, marginTop: "32px", fontFamily: "'Playfair Display', serif",
+              fontStyle: "italic",
+            }}>
+              "Is this even halal?"
+            </p>
+          </Reveal>
+
+          <Reveal delay={200}>
+            <p className="story-line" style={{ marginTop: "28px" }}>
+              You didn't stop reading. But the guilt crept in. The law of attraction is not tawakkul. Manifesting is not du'a. "The universe" is not Allah. And nobody was sorting it for you.
+            </p>
+          </Reveal>
+
+          <Reveal delay={300}>
+            <p className="story-line" style={{ marginTop: "28px" }}>
+              You were left alone in a gap. The secular world gave you the tools. Your deen gave you the truth. But no one was bridging the two.
+            </p>
+          </Reveal>
+
+          <Reveal delay={400}>
+            <p className="story-line" style={{ marginTop: "28px" }}>
+              The brothers online? Bismillah in the intro. A course to sell in the outro. Seventeen minutes of nothing in between.
+            </p>
+          </Reveal>
+
+          <Reveal delay={500}>
+            <p style={{
+              fontSize: "clamp(22px, 4vw, 32px)", fontWeight: 700, color: "#D4A853",
+              lineHeight: 1.4, marginTop: "40px", fontFamily: "'Playfair Display', serif",
+            }}>
+              Where is the ihsan?
+            </p>
+            <p className="story-line" style={{ marginTop: "12px" }}>
+              Where is the excellence our deen demands?
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ===== 3. THE SOLUTION — What this is ===== */}
       <section style={{ position: "relative", zIndex: 1 }}>
         <Divider />
         <div style={{ maxWidth: "640px", margin: "0 auto", padding: "0 24px" }}>
@@ -300,7 +346,39 @@ export default function App() {
             <p style={{
               fontSize: "11px", color: "rgba(212,168,83,0.5)", letterSpacing: "4px",
               textTransform: "uppercase", fontWeight: 700, marginBottom: "32px",
-            }}>What You Get</p>
+            }}>This is why NurHabits exists</p>
+          </Reveal>
+
+          <Reveal delay={80}>
+            <p className="story-line">
+              Twelve months. Twelve of the best self-development books ever written. Every lesson filtered through Qur'an and Sunnah.
+            </p>
+          </Reveal>
+
+          <Reveal delay={160}>
+            <p className="story-line" style={{ marginTop: "28px" }}>
+              The wisdom stays. The shirk goes. What is left is yours to keep with a clean heart.
+            </p>
+          </Reveal>
+
+          <Reveal delay={240}>
+            <p className="story-line" style={{ marginTop: "28px" }}>
+              No courses. No gurus. No fluff. Just study guides written so clear a fifth grader could follow them. Every concept. Every ayah. Every hadith. Every place the author got it wrong, flagged in plain language so you never have to wonder again.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ===== 4. WHAT YOU GET — Transformation, not features ===== */}
+      <section style={{ position: "relative", zIndex: 1 }}>
+        <Divider />
+        <div style={{ maxWidth: "640px", margin: "0 auto", padding: "0 24px" }}>
+
+          <Reveal>
+            <p style={{
+              fontSize: "11px", color: "rgba(212,168,83,0.5)", letterSpacing: "4px",
+              textTransform: "uppercase", fontWeight: 700, marginBottom: "32px",
+            }}>What you walk away with</p>
           </Reveal>
 
           <Reveal delay={80}>
@@ -309,7 +387,7 @@ export default function App() {
               lineHeight: 1.3, marginBottom: "12px",
             }}>Clarity.</p>
             <p className="story-line">
-              You get to read the best self-development books on earth and know exactly where they align with your deen and where they don't. No guessing. No guilt. No "is this even halal to think about?"
+              You will know exactly what the author said, where Islam agrees, and where Islam corrects. No guessing. No guilt. No "is this even halal to think about?" That question dies here.
             </p>
           </Reveal>
 
@@ -329,7 +407,7 @@ export default function App() {
               lineHeight: 1.3, marginTop: "40px", marginBottom: "12px",
             }}>Permission to be unequivocally you.</p>
             <p className="story-line">
-              Every Amber section flags where the author's theology is shirk. Every Green section shows you the Islamic truth underneath. You don't have to choose between secular wisdom and your deen. You just needed someone to sort it for you.
+              You don't have to choose between secular wisdom and your deen. You don't have to feel guilty for wanting to grow. You just needed someone to sort the gold from the poison. That is what this is.
             </p>
           </Reveal>
 
@@ -363,26 +441,79 @@ export default function App() {
           </Reveal>
 
           <Reveal delay={400}>
-            <p style={{
-              marginTop: "28px", fontSize: "14px", color: "rgba(255,255,255,0.3)",
-              textAlign: "center", fontWeight: 400,
-            }}>
-              Written at a 5th grade reading level. Crystal clear. No fluff.
-            </p>
-          </Reveal>
-
-          <Reveal delay={440}>
-            <div style={{ textAlign: "center", marginTop: "36px" }}>
+            <div style={{ textAlign: "center", marginTop: "40px" }}>
               <a href={STRIPE_LINK} target="_blank" rel="noopener noreferrer"
                 className="cta-main">
-                Get Book 1 — $19
+                Start With Book 1 — $19
               </a>
+              <p style={{
+                marginTop: "12px", fontSize: "12px", color: "rgba(255,255,255,0.25)",
+                fontWeight: 400,
+              }}>
+                The Game of Life and How to Play It — Muslim Reader's Companion
+              </p>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* ===== THE WALK — PUBLIC LEDGER ===== */}
+      {/* ===== 5. WHO IS BEHIND THIS — Story as proof, earned ===== */}
+      <section style={{ position: "relative", zIndex: 1 }}>
+        <Divider />
+        <div style={{ maxWidth: "640px", margin: "0 auto", padding: "0 24px" }}>
+
+          <Reveal>
+            <p style={{
+              fontSize: "11px", color: "rgba(212,168,83,0.5)", letterSpacing: "4px",
+              textTransform: "uppercase", fontWeight: 700, marginBottom: "32px",
+            }}>Your brother on the walk</p>
+          </Reveal>
+
+          <Reveal delay={80}>
+            <p className="story-line">
+              I'm Kassim. Somali-American. I landed in Egypt January 1, 2020.
+            </p>
+          </Reveal>
+
+          <Reveal delay={160}>
+            <p className="story-line" style={{ marginTop: "24px" }}>
+              I left three times. Spent most of the year chasing dollars in the US. Came back with $6,000. Then $2,000. Then $1,800. Less money every time. Further from Allah every time.
+            </p>
+          </Reveal>
+
+          <Reveal delay={240}>
+            <p className="story-line" style={{ marginTop: "24px" }}>
+              Then Allah called me back. I discovered what it means to pray five times a day at the masjid. To stand in the first row. To do things in private for the sake of Allah alone.
+            </p>
+          </Reveal>
+
+          <Reveal delay={320}>
+            <div style={{
+              marginTop: "36px", padding: "28px 0 28px 28px",
+              borderLeft: "3px solid rgba(212,168,83,0.35)",
+            }}>
+              <p style={{
+                fontSize: "clamp(19px, 3vw, 24px)", fontWeight: 600,
+                color: "rgba(255,255,255,0.85)", lineHeight: 1.6,
+                fontFamily: "'Playfair Display', serif", fontStyle: "italic",
+              }}>
+                Then a brother my age died in a car crash. We are not promised tomorrow.
+              </p>
+              <p className="story-line" style={{ marginTop: "20px" }}>
+                So I made istikhara with my wife and we committed. We are staying in Egypt. I had $0.14 to my name. I would rather perish here broke than crush my iman for mere human gain.
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={400}>
+            <p className="story-line" style={{ marginTop: "32px" }}>
+              I'm not your teacher. I'm not your guru. I'm the brother who felt the same gap you feel and decided to do something about it. I read these books. I filter them through Qur'an and Sunnah. I hand you what is left. That is it.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ===== 6. THE WALK — PUBLIC LEDGER ===== */}
       <section id="walk" style={{ position: "relative", zIndex: 1 }}>
         <Divider />
         <div style={{ maxWidth: "640px", margin: "0 auto", padding: "0 24px" }}>
@@ -478,7 +609,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* ===== THE JOURNEY / BOOKS ===== */}
+      {/* ===== 7. THE JOURNEY / BOOKS ===== */}
       <section id="journey" style={{ position: "relative", zIndex: 1, scrollMarginTop: "70px" }}>
         <Divider />
         <div style={{ maxWidth: "780px", margin: "0 auto", padding: "0 24px" }}>
@@ -526,93 +657,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* ===== WHO I AM (condensed, after offer) ===== */}
-      <section style={{ position: "relative", zIndex: 1 }}>
-        <Divider />
-        <div style={{ maxWidth: "640px", margin: "0 auto", padding: "0 24px" }}>
-
-          <Reveal>
-            <p style={{
-              fontSize: "11px", color: "rgba(212,168,83,0.5)", letterSpacing: "4px",
-              textTransform: "uppercase", fontWeight: 700, marginBottom: "32px",
-            }}>Who I Am</p>
-          </Reveal>
-
-          <Reveal delay={80}>
-            <p className="story-line">I'm Kassim. Somali-American. Landed in Egypt January 1, 2020.</p>
-          </Reveal>
-
-          <Reveal delay={160}>
-            <p className="story-line" style={{ marginTop: "24px" }}>
-              I left three times. Spent most of the year chasing dollars in the US. Came back with $6,000. Then $2,000. Then $1,800. Less money every time. Further from Allah every time.
-            </p>
-          </Reveal>
-
-          <Reveal delay={240}>
-            <p className="story-line" style={{ marginTop: "24px" }}>
-              Then Allah called me back. I discovered what it means to pray five times a day at the masjid. To stand in the first row. To do things in private for the sake of Allah alone.
-            </p>
-          </Reveal>
-
-          <Reveal delay={320}>
-            <div style={{
-              marginTop: "36px", padding: "28px 0 28px 28px",
-              borderLeft: "3px solid rgba(212,168,83,0.35)",
-            }}>
-              <p style={{
-                fontSize: "clamp(19px, 3vw, 24px)", fontWeight: 600,
-                color: "rgba(255,255,255,0.85)", lineHeight: 1.6,
-                fontFamily: "'Playfair Display', serif", fontStyle: "italic",
-              }}>
-                Then a brother my age died in a car crash. We are not promised tomorrow.
-              </p>
-              <p className="story-line" style={{ marginTop: "20px" }}>
-                So I made istikhara with my wife and we committed. We are staying in Egypt. I had $0.14 to my name. I would rather perish here broke than crush my iman for mere human gain.
-              </p>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ===== WHY THIS EXISTS (condensed, Hormozi removed) ===== */}
-      <section style={{ position: "relative", zIndex: 1 }}>
-        <Divider />
-        <div style={{ maxWidth: "640px", margin: "0 auto", padding: "0 24px" }}>
-
-          <Reveal>
-            <p style={{
-              fontSize: "11px", color: "rgba(212,168,83,0.5)", letterSpacing: "4px",
-              textTransform: "uppercase", fontWeight: 700, marginBottom: "32px",
-            }}>Why This Exists</p>
-          </Reveal>
-
-          <Reveal delay={80}>
-            <p className="story-line">
-              I watched a brother on YouTube promise to show Muslims how to make $100 a day. Seventeen minutes later I had nothing. No real steps. Just a course to buy.
-            </p>
-          </Reveal>
-
-          <Reveal delay={160}>
-            <p style={{
-              fontSize: "clamp(20px, 3.5vw, 28px)", fontWeight: 700, color: "#D4A853",
-              lineHeight: 1.5, marginTop: "36px", fontFamily: "'Playfair Display', serif",
-            }}>
-              Where is the ihsan?
-            </p>
-            <p className="story-line" style={{ marginTop: "16px" }}>
-              Where is the excellence our deen demands? Why do non-Muslims outwork us in giving real value? That question keeps me up at night. That question is why NurHabits exists.
-            </p>
-          </Reveal>
-
-          <Reveal delay={240}>
-            <p className="story-line" style={{ marginTop: "28px" }}>
-              I'm not your teacher. I'm not your guru. I'm your brother doing this alongside you. Full transparency. The rizq of Allah is vast. There is enough for us all.
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ===== EMAIL CAPTURE ===== */}
+      {/* ===== 8. EMAIL CAPTURE ===== */}
       <section id="join" style={{ position: "relative", zIndex: 1, scrollMarginTop: "70px" }}>
         <Divider />
         <div style={{ maxWidth: "460px", margin: "0 auto", padding: "0 24px 100px", textAlign: "center" }}>
@@ -623,7 +668,7 @@ export default function App() {
               lineHeight: 1.1, marginBottom: "16px",
             }}>Join The Walk</h2>
             <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "15px", lineHeight: 1.6, marginBottom: "36px" }}>
-              Get the monthly breakdown when each new book drops. Straight to your inbox. No spam. No courses. Just the next step.
+              A new book drops every month. Get it in your inbox the day it goes live. No spam. No courses. Just the next step.
             </p>
           </Reveal>
 
