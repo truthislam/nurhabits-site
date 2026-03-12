@@ -297,11 +297,11 @@ export default function App() {
           </Reveal>
 
           <Reveal delay={80}>
-            <p className="story-line">I'm Kassim. 35. Somali-American.</p>
+            <p className="story-line">I'm Kassim. Somali-American.</p>
           </Reveal>
           <Reveal delay={140}>
             <p className="story-line" style={{ marginTop: "20px" }}>
-              I landed in Egypt on January 1, 2020 expecting to stay a few weeks. I never left.
+              I landed in Egypt on January 1, 2020 expecting to stay a few weeks.
             </p>
           </Reveal>
 
@@ -319,7 +319,7 @@ export default function App() {
 
           <Reveal delay={320}>
             <p className="story-line" style={{ marginTop: "28px" }}>
-              I went back to the US three times. Every time I left, I lost what mattered most. My connection with Allah. Every time I came back with less money. $6,000. Then $1,800. Then $2,000. Leaving my deen to chase dollars. Then crawling back broke but alive again.
+              I went back to the US three times. Every time I left, I lost what mattered most. My connection with Allah. Every time I came back with less money. $6,000. Then $2,000. Then $1,800. Leaving my deen to chase dollars. Then crawling back broke but alive again.
             </p>
           </Reveal>
 
