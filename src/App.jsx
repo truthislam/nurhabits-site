@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 // ============================================================
 // KASSIM — REPLACE THESE 2 VALUES BEFORE DEPLOYING
 // ============================================================
-const STRIPE_LINK = "https://buy.stripe.com/00w9AT10y0pF3Iz5vXawo00";
+const STRIPE_LINK = "https://payhip.com/b/MxP42";
 const FORMSPREE_ID = "https://formspree.io/f/xzdjrlqw";
 // ============================================================
 
@@ -535,3 +535,4 @@ export default function App() {
     </div>
   );
 }
+
