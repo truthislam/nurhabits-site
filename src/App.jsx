@@ -410,6 +410,102 @@ export default function App() {
         </div>
       </section>
 
+      {/* ===== THE WALK — PUBLIC LEDGER ===== */}
+      <section style={{ position: "relative", zIndex: 1 }}>
+        <Divider />
+        <div style={{ maxWidth: "640px", margin: "0 auto", padding: "0 24px" }}>
+
+          <Reveal>
+            <p style={{
+              fontSize: "11px", color: "rgba(212,168,83,0.5)", letterSpacing: "4px",
+              textTransform: "uppercase", fontWeight: 700, marginBottom: "16px",
+            }}>The Walk</p>
+            <h2 style={{
+              fontSize: "clamp(24px, 4vw, 36px)", fontWeight: 800, color: "#fff", lineHeight: 1.1, marginBottom: "8px",
+            }}>
+              From $0.14 to Freedom.
+            </h2>
+            <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "14px", marginBottom: "40px" }}>
+              Every dollar in. Every dollar out. No hiding.
+            </p>
+          </Reveal>
+
+          <Reveal delay={100}>
+            <div style={{
+              background: "rgba(255,255,255,0.02)",
+              border: "1px solid rgba(255,255,255,0.06)",
+              borderRadius: "12px",
+              padding: "28px 24px",
+              fontFamily: "'Outfit', monospace",
+            }}>
+              {[
+                { date: "Jan 2020", desc: "Starting balance", amount: null, balance: 0.14, type: "start" },
+                { date: "Mar 2026", desc: "Etsy shop sales", amount: 32.51, balance: 32.65, type: "in" },
+                { date: "Mar 2026", desc: "Google One (business)", amount: -3.99, balance: 28.66, type: "out" },
+                { date: "Mar 2026", desc: "Namecheap domain", amount: -6.99, balance: 21.67, type: "out" },
+              ].map((entry, i) => (
+                <div key={i} style={{
+                  display: "flex", justifyContent: "space-between", alignItems: "center",
+                  padding: "14px 0",
+                  borderBottom: i < 3 ? "1px solid rgba(255,255,255,0.04)" : "none",
+                }}>
+                  <div style={{ flex: 1 }}>
+                    <span style={{
+                      fontSize: "11px", color: "rgba(255,255,255,0.25)",
+                      fontWeight: 500, marginRight: "16px", minWidth: "70px", display: "inline-block",
+                    }}>{entry.date}</span>
+                    <span style={{
+                      fontSize: "14px", color: "rgba(255,255,255,0.6)", fontWeight: 400,
+                    }}>{entry.desc}</span>
+                  </div>
+                  <div style={{ textAlign: "right", minWidth: "80px" }}>
+                    {entry.amount !== null && (
+                      <span style={{
+                        fontSize: "12px",
+                        color: entry.type === "in" ? "rgba(100,200,120,0.7)" : "rgba(255,100,100,0.5)",
+                        fontWeight: 500, display: "block",
+                      }}>
+                        {entry.type === "in" ? "+" : ""}{entry.amount < 0 ? "-" : ""}${Math.abs(entry.amount).toFixed(2)}
+                      </span>
+                    )}
+                    <span style={{
+                      fontSize: "15px", fontWeight: 700,
+                      color: entry.type === "start" ? "rgba(255,255,255,0.4)" : "#D4A853",
+                    }}>
+                      ${entry.balance.toFixed(2)}
+                    </span>
+                  </div>
+                </div>
+              ))}
+
+              {/* Current balance footer */}
+              <div style={{
+                marginTop: "20px", paddingTop: "20px",
+                borderTop: "1px solid rgba(212,168,83,0.2)",
+                display: "flex", justifyContent: "space-between", alignItems: "center",
+              }}>
+                <span style={{
+                  fontSize: "13px", color: "rgba(212,168,83,0.6)", fontWeight: 600,
+                  letterSpacing: "1px", textTransform: "uppercase",
+                }}>Current Balance</span>
+                <span style={{
+                  fontSize: "28px", fontWeight: 800, color: "#D4A853",
+                }}>$21.67</span>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={200}>
+            <p style={{
+              marginTop: "24px", fontSize: "13px", color: "rgba(255,255,255,0.25)",
+              textAlign: "center", fontStyle: "italic",
+            }}>
+              Updated manually. Every entry is real.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ===== THE JOURNEY / BOOKS ===== */}
       <section id="journey" style={{ position: "relative", zIndex: 1, scrollMarginTop: "70px" }}>
         <Divider />
