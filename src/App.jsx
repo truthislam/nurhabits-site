@@ -387,7 +387,7 @@ export default function App() {
 
           <Reveal delay={400}>
             <p className="story-line" style={{ marginTop: "28px" }}>
-              I'm not your teacher. I'm not your guru. I'm your brother doing this alongside you. From $0.14 to freedom. Full transparency. The rizq of Allah is vast. There is enough for us all. That is not hope. That is aqeedah.
+              I'm not your teacher. I'm not your guru. I'm your brother doing this alongside you. From $0.14 to freedom. Full transparency. The rizq of Allah is vast. There is enough for us all.
             </p>
           </Reveal>
 
@@ -439,7 +439,7 @@ export default function App() {
               fontFamily: "'Outfit', monospace",
             }}>
               {[
-                { date: "Jan 2020", desc: "Starting balance", amount: null, balance: 0.14, type: "start" },
+                { date: "Feb 2026", desc: "Starting balance", amount: null, balance: 0.14, type: "start" },
                 { date: "Mar 2026", desc: "Etsy shop sales", amount: 32.51, balance: 32.65, type: "in" },
                 { date: "Mar 2026", desc: "Google One (business)", amount: -3.99, balance: 28.66, type: "out" },
                 { date: "Mar 2026", desc: "Namecheap domain", amount: -6.99, balance: 21.67, type: "out" },
