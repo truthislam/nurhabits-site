@@ -1,12 +1,15 @@
+// src/App.jsx — Replace your current App.jsx with this
+// This adds routing so /walk loads the Walk dashboard
+
 import { useState, useEffect, useRef } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Walk from "./Walk";
 
 // ============================================================
-// KASSIM — REPLACE THESE 2 VALUES BEFORE DEPLOYING
+// CONSTANTS & HELPERS
 // ============================================================
 const STRIPE_LINK = "https://payhip.com/b/MxP42";
 const FORMSPREE_ID = "https://formspree.io/f/xzdjrlqw";
-// ============================================================
-
 const IG = "https://instagram.com/nurhabits";
 
 /* ---------- Intersection observer fade ---------- */
@@ -141,10 +144,8 @@ function Book({ num, title, status, featured }) {
   );
 }
 
-/* ============================================================
-   MAIN APP
-   ============================================================ */
-export default function App() {
+// Your existing homepage component
+function Home() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState(null);
 
@@ -229,7 +230,7 @@ export default function App() {
         </div>
       </nav>
 
-      {/* ===== 1. HERO — Talk to HIM ===== */}
+      {/* ===== 1. HERO ===== */}
       <section style={{
         minHeight: "100vh", display: "flex", flexDirection: "column",
         alignItems: "center", justifyContent: "center",
@@ -284,11 +285,10 @@ export default function App() {
         </div>
       </section>
 
-      {/* ===== 2. THE PROBLEM — Name the enemy ===== */}
+      {/* ===== 2. THE PROBLEM ===== */}
       <section id="the-problem" style={{ position: "relative", zIndex: 1, scrollMarginTop: "70px" }}>
         <Divider />
         <div style={{ maxWidth: "640px", margin: "0 auto", padding: "0 24px" }}>
-
           <Reveal>
             <p className="story-line">
               You picked up Atomic Habits and it changed how you think. You read The 7 Habits and it made you sharper. You felt something shift. Then a quiet voice asked:
@@ -337,11 +337,10 @@ export default function App() {
         </div>
       </section>
 
-      {/* ===== 3. THE SOLUTION — What this is ===== */}
+      {/* ===== 3. THE SOLUTION ===== */}
       <section style={{ position: "relative", zIndex: 1 }}>
         <Divider />
         <div style={{ maxWidth: "640px", margin: "0 auto", padding: "0 24px" }}>
-
           <Reveal>
             <p style={{
               fontSize: "11px", color: "rgba(212,168,83,0.5)", letterSpacing: "4px",
@@ -369,11 +368,10 @@ export default function App() {
         </div>
       </section>
 
-      {/* ===== 4. WHAT YOU GET — Transformation, not features ===== */}
+      {/* ===== 4. WHAT YOU GET ===== */}
       <section style={{ position: "relative", zIndex: 1 }}>
         <Divider />
         <div style={{ maxWidth: "640px", margin: "0 auto", padding: "0 24px" }}>
-
           <Reveal>
             <p style={{
               fontSize: "11px", color: "rgba(212,168,83,0.5)", letterSpacing: "4px",
@@ -440,6 +438,7 @@ export default function App() {
             </div>
           </Reveal>
 
+          {/* ... Dream Outcome, Effort Reduction, Likelihood sections ... */}
           <Reveal delay={400}>
             <div style={{
               marginTop: "48px", padding: "36px 28px",
@@ -447,8 +446,6 @@ export default function App() {
               border: "1.5px solid rgba(212,168,83,0.3)",
               borderRadius: "16px",
             }}>
-
-              {/* --- DREAM OUTCOME --- */}
               <p style={{
                 fontSize: "clamp(20px, 3.5vw, 26px)", fontWeight: 800, color: "#fff",
                 lineHeight: 1.3, textAlign: "center", marginBottom: "8px",
@@ -460,12 +457,10 @@ export default function App() {
                 Know exactly what aligns with your deen. Know exactly what doesn't. No guilt. No guessing. No compromise.
               </p>
 
-              {/* --- EFFORT REDUCTION: Done for you --- */}
               <p style={{
                 fontSize: "12px", color: "rgba(212,168,83,0.5)", letterSpacing: "2px",
                 textTransform: "uppercase", fontWeight: 700, marginBottom: "20px",
               }}>The work is already done for you</p>
-
               <div style={{ display: "grid", gap: "14px" }}>
                 {[
                   "You do not need to read the original book first",
@@ -481,16 +476,8 @@ export default function App() {
                 ))}
               </div>
 
-              {/* --- LIKELIHOOD: What's inside --- */}
-              <div style={{
-                marginTop: "32px", paddingTop: "28px",
-                borderTop: "1px solid rgba(255,255,255,0.06)",
-              }}>
-                <p style={{
-                  fontSize: "12px", color: "rgba(212,168,83,0.5)", letterSpacing: "2px",
-                  textTransform: "uppercase", fontWeight: 700, marginBottom: "20px",
-                }}>What is inside Book 1</p>
-
+              <div style={{ marginTop: "32px", paddingTop: "28px", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+                <p style={{ fontSize: "12px", color: "rgba(212,168,83,0.5)", letterSpacing: "2px", textTransform: "uppercase", fontWeight: 700, marginBottom: "20px" }}>What is inside Book 1</p>
                 <div style={{ display: "grid", gap: "12px" }}>
                   {[
                     "5 full chapters reframed through Qur'an and Sunnah",
@@ -509,47 +496,18 @@ export default function App() {
                 </div>
               </div>
 
-              {/* --- TIME DELAY: Instant access --- */}
-              <div style={{
-                marginTop: "28px", padding: "20px 24px",
-                background: "rgba(212,168,83,0.04)",
-                border: "1px solid rgba(212,168,83,0.12)",
-                borderRadius: "10px",
-                textAlign: "center",
-              }}>
-                <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.6)", fontWeight: 500 }}>
-                  Instant download. You can start reading before your next salah.
-                </p>
+              <div style={{ marginTop: "28px", padding: "20px 24px", background: "rgba(212,168,83,0.04)", border: "1px solid rgba(212,168,83,0.12)", borderRadius: "10px", textAlign: "center" }}>
+                <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.6)", fontWeight: 500 }}>Instant download. You can start reading before your next salah.</p>
               </div>
 
-              {/* --- CTA --- */}
               <div style={{ textAlign: "center", marginTop: "32px" }}>
-                <a href={STRIPE_LINK} target="_blank" rel="noopener noreferrer"
-                  className="cta-main" style={{ fontSize: "18px", padding: "20px 52px" }}>
-                  Get Book 1 — $19
-                </a>
-                <p style={{
-                  marginTop: "10px", fontSize: "12px", color: "rgba(255,255,255,0.25)",
-                  fontWeight: 400,
-                }}>
-                  The Game of Life and How to Play It — Muslim Reader's Companion
-                </p>
+                <a href={STRIPE_LINK} target="_blank" rel="noopener noreferrer" className="cta-main" style={{ fontSize: "18px", padding: "20px 52px" }}>Get Book 1 — $19</a>
+                <p style={{ marginTop: "10px", fontSize: "12px", color: "rgba(255,255,255,0.25)", fontWeight: 400 }}>The Game of Life and How to Play It — Muslim Reader's Companion</p>
               </div>
 
-              {/* --- RISK REVERSAL: Guarantee --- */}
-              <div style={{
-                marginTop: "28px", paddingTop: "24px",
-                borderTop: "1px solid rgba(255,255,255,0.06)",
-                textAlign: "center",
-              }}>
-                <p style={{
-                  fontSize: "13px", color: "rgba(212,168,83,0.45)", letterSpacing: "1.5px",
-                  textTransform: "uppercase", fontWeight: 700, marginBottom: "12px",
-                }}>Full money-back guarantee</p>
-                <p style={{
-                  fontSize: "14px", color: "rgba(255,255,255,0.45)", lineHeight: 1.7, fontWeight: 400,
-                  maxWidth: "440px", margin: "0 auto",
-                }}>
+              <div style={{ marginTop: "28px", paddingTop: "24px", borderTop: "1px solid rgba(255,255,255,0.06)", textAlign: "center" }}>
+                <p style={{ fontSize: "13px", color: "rgba(212,168,83,0.45)", letterSpacing: "1.5px", textTransform: "uppercase", fontWeight: 700, marginBottom: "12px" }}>Full money-back guarantee</p>
+                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.45)", lineHeight: 1.7, fontWeight: 400, maxWidth: "440px", margin: "0 auto" }}>
                   If this guide does not change how you read secular books as a Muslim, email me. Full refund. No questions. No hard feelings. I would rather return your money than take a single dollar without delivering value. That is my covenant with you and with Allah.
                 </p>
               </div>
@@ -558,46 +516,25 @@ export default function App() {
         </div>
       </section>
 
-      {/* ===== 5. WHO IS BEHIND THIS — Story as proof, earned ===== */}
+      {/* ===== 5. WHO IS BEHIND THIS ===== */}
       <section style={{ position: "relative", zIndex: 1 }}>
         <Divider />
         <div style={{ maxWidth: "640px", margin: "0 auto", padding: "0 24px" }}>
-
           <Reveal>
-            <p style={{
-              fontSize: "11px", color: "rgba(212,168,83,0.5)", letterSpacing: "4px",
-              textTransform: "uppercase", fontWeight: 700, marginBottom: "32px",
-            }}>Your brother on the walk</p>
+            <p style={{ fontSize: "11px", color: "rgba(212,168,83,0.5)", letterSpacing: "4px", textTransform: "uppercase", fontWeight: 700, marginBottom: "32px" }}>Your brother on the walk</p>
           </Reveal>
-
           <Reveal delay={80}>
-            <p className="story-line">
-              I'm Kassim. Somali-American. I landed in Egypt January 1, 2020.
-            </p>
+            <p className="story-line">I'm Kassim. Somali-American. I landed in Egypt January 1, 2020.</p>
           </Reveal>
-
           <Reveal delay={160}>
-            <p className="story-line" style={{ marginTop: "24px" }}>
-              I left three times. Spent most of the year chasing dollars in the US. Came back with $6,000. Then $2,000. Then $1,800. Less money every time. Further from Allah every time.
-            </p>
+            <p className="story-line" style={{ marginTop: "24px" }}>I left three times. Spent most of the year chasing dollars in the US. Came back with $6,000. Then $2,000. Then $1,800. Less money every time. Further from Allah every time.</p>
           </Reveal>
-
           <Reveal delay={240}>
-            <p className="story-line" style={{ marginTop: "24px" }}>
-              Then Allah called me back. I discovered what it means to pray five times a day at the masjid. To stand in the first row. To do things in private for the sake of Allah alone.
-            </p>
+            <p className="story-line" style={{ marginTop: "24px" }}>Then Allah called me back. I discovered what it means to pray five times a day at the masjid. To stand in the first row. To do things in private for the sake of Allah alone.</p>
           </Reveal>
-
           <Reveal delay={320}>
-            <div style={{
-              marginTop: "36px", padding: "28px 0 28px 28px",
-              borderLeft: "3px solid rgba(212,168,83,0.35)",
-            }}>
-              <p style={{
-                fontSize: "clamp(19px, 3vw, 24px)", fontWeight: 600,
-                color: "rgba(255,255,255,0.85)", lineHeight: 1.6,
-                fontFamily: "'Playfair Display', serif", fontStyle: "italic",
-              }}>
+            <div style={{ marginTop: "36px", padding: "28px 0 28px 28px", borderLeft: "3px solid rgba(212,168,83,0.35)" }}>
+              <p style={{ fontSize: "clamp(19px, 3vw, 24px)", fontWeight: 600, color: "rgba(255,255,255,0.85)", lineHeight: 1.6, fontFamily: "'Playfair Display', serif", fontStyle: "italic" }}>
                 Then a brother my age died in a car crash. We are not promised tomorrow.
               </p>
               <p className="story-line" style={{ marginTop: "20px" }}>
@@ -605,11 +542,8 @@ export default function App() {
               </p>
             </div>
           </Reveal>
-
           <Reveal delay={400}>
-            <p className="story-line" style={{ marginTop: "32px" }}>
-              I'm not your teacher. I'm not your guru. I'm the brother who felt the same gap you feel and decided to do something about it. I read these books. I filter them through Qur'an and Sunnah. I hand you what is left. That is it.
-            </p>
+            <p className="story-line" style={{ marginTop: "32px" }}>I'm not your teacher. I'm not your guru. I'm the brother who felt the same gap you feel and decided to do something about it. I read these books. I filter them through Qur'an and Sunnah. I hand you what is left. That is it.</p>
           </Reveal>
         </div>
       </section>
@@ -618,94 +552,36 @@ export default function App() {
       <section id="walk" style={{ position: "relative", zIndex: 1 }}>
         <Divider />
         <div style={{ maxWidth: "640px", margin: "0 auto", padding: "0 24px" }}>
-
           <Reveal>
-            <p style={{
-              fontSize: "11px", color: "rgba(212,168,83,0.5)", letterSpacing: "4px",
-              textTransform: "uppercase", fontWeight: 700, marginBottom: "16px",
-            }}>The Walk</p>
-            <h2 style={{
-              fontSize: "clamp(24px, 4vw, 36px)", fontWeight: 800, color: "#fff", lineHeight: 1.1, marginBottom: "12px",
-            }}>
-              $0.14 and a hijrah.
-            </h2>
-            <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "15px", lineHeight: 1.6, marginBottom: "40px", maxWidth: "520px" }}>
-              This is my real bank account. Every dollar in and every dollar out. No hiding. We grow together or not at all.
-            </p>
+            <p style={{ fontSize: "11px", color: "rgba(212,168,83,0.5)", letterSpacing: "4px", textTransform: "uppercase", fontWeight: 700, marginBottom: "16px" }}>The Walk</p>
+            <h2 style={{ fontSize: "clamp(24px, 4vw, 36px)", fontWeight: 800, color: "#fff", lineHeight: 1.1, marginBottom: "12px" }}>$0.14 and a hijrah.</h2>
+            <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "15px", lineHeight: 1.6, marginBottom: "40px", maxWidth: "520px" }}>This is my real bank account. Every dollar in and every dollar out. No hiding. We grow together or not at all.</p>
           </Reveal>
 
           <Reveal delay={100}>
-            <div style={{
-              background: "rgba(255,255,255,0.02)",
-              border: "1px solid rgba(255,255,255,0.06)",
-              borderRadius: "12px",
-              padding: "28px 24px",
-              fontFamily: "'Outfit', monospace",
-            }}>
+            <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "12px", padding: "28px 24px", fontFamily: "'Outfit', monospace" }}>
               {[
                 { date: "Feb 2026", desc: "Starting balance", amount: null, balance: 0.14, type: "start" },
                 { date: "Mar 2026", desc: "Etsy shop sales", amount: 32.51, balance: 32.65, type: "in" },
                 { date: "Mar 2026", desc: "Google One (business)", amount: -3.99, balance: 28.66, type: "out" },
                 { date: "Mar 2026", desc: "Namecheap domain", amount: -6.99, balance: 21.67, type: "out" },
               ].map((entry, i) => (
-                <div key={i} style={{
-                  display: "flex", justifyContent: "space-between", alignItems: "center",
-                  padding: "14px 0",
-                  borderBottom: i < 3 ? "1px solid rgba(255,255,255,0.04)" : "none",
-                }}>
+                <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "14px 0", borderBottom: i < 3 ? "1px solid rgba(255,255,255,0.04)" : "none" }}>
                   <div style={{ flex: 1 }}>
-                    <span style={{
-                      fontSize: "11px", color: "rgba(255,255,255,0.25)",
-                      fontWeight: 500, marginRight: "16px", minWidth: "70px", display: "inline-block",
-                    }}>{entry.date}</span>
-                    <span style={{
-                      fontSize: "14px", color: "rgba(255,255,255,0.6)", fontWeight: 400,
-                    }}>{entry.desc}</span>
+                    <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontWeight: 500, marginRight: "16px", minWidth: "70px", display: "inline-block" }}>{entry.date}</span>
+                    <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.6)", fontWeight: 400 }}>{entry.desc}</span>
                   </div>
                   <div style={{ textAlign: "right", minWidth: "80px" }}>
-                    {entry.amount !== null && (
-                      <span style={{
-                        fontSize: "12px",
-                        color: entry.type === "in" ? "rgba(100,200,120,0.7)" : "rgba(255,100,100,0.5)",
-                        fontWeight: 500, display: "block",
-                      }}>
-                        {entry.type === "in" ? "+" : ""}{entry.amount < 0 ? "-" : ""}${Math.abs(entry.amount).toFixed(2)}
-                      </span>
-                    )}
-                    <span style={{
-                      fontSize: "15px", fontWeight: 700,
-                      color: entry.type === "start" ? "rgba(255,255,255,0.4)" : "#D4A853",
-                    }}>
-                      ${entry.balance.toFixed(2)}
-                    </span>
+                    {entry.amount !== null && <span style={{ fontSize: "12px", color: entry.type === "in" ? "rgba(100,200,120,0.7)" : "rgba(255,100,100,0.5)", fontWeight: 500, display: "block" }}>{entry.type === "in" ? "+" : ""}{entry.amount < 0 ? "-" : ""}${Math.abs(entry.amount).toFixed(2)}</span>}
+                    <span style={{ fontSize: "15px", fontWeight: 700, color: entry.type === "start" ? "rgba(255,255,255,0.4)" : "#D4A853" }}>${entry.balance.toFixed(2)}</span>
                   </div>
                 </div>
               ))}
-
-              {/* Current balance footer */}
-              <div style={{
-                marginTop: "20px", paddingTop: "20px",
-                borderTop: "1px solid rgba(212,168,83,0.2)",
-                display: "flex", justifyContent: "space-between", alignItems: "center",
-              }}>
-                <span style={{
-                  fontSize: "13px", color: "rgba(212,168,83,0.6)", fontWeight: 600,
-                  letterSpacing: "1px", textTransform: "uppercase",
-                }}>Current Balance</span>
-                <span style={{
-                  fontSize: "28px", fontWeight: 800, color: "#D4A853",
-                }}>$21.67</span>
+              <div style={{ marginTop: "20px", paddingTop: "20px", borderTop: "1px solid rgba(212,168,83,0.2)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <span style={{ fontSize: "13px", color: "rgba(212,168,83,0.6)", fontWeight: 600, letterSpacing: "1px", textTransform: "uppercase" }}>Current Balance</span>
+                <span style={{ fontSize: "28px", fontWeight: 800, color: "#D4A853" }}>$21.67</span>
               </div>
             </div>
-          </Reveal>
-
-          <Reveal delay={200}>
-            <p style={{
-              marginTop: "24px", fontSize: "13px", color: "rgba(255,255,255,0.25)",
-              textAlign: "center", fontStyle: "italic",
-            }}>
-              Updated manually. Every entry is real.
-            </p>
           </Reveal>
         </div>
       </section>
@@ -714,42 +590,26 @@ export default function App() {
       <section id="journey" style={{ position: "relative", zIndex: 1, scrollMarginTop: "70px" }}>
         <Divider />
         <div style={{ maxWidth: "780px", margin: "0 auto", padding: "0 24px" }}>
-
           <Reveal>
             <div style={{ textAlign: "center", marginBottom: "48px" }}>
-              <p style={{
-                fontSize: "11px", color: "rgba(212,168,83,0.5)", letterSpacing: "4px",
-                textTransform: "uppercase", fontWeight: 700, marginBottom: "16px",
-              }}>The Journey</p>
-              <h2 style={{
-                fontSize: "clamp(28px, 5vw, 44px)", fontWeight: 800, color: "#fff", lineHeight: 1.1,
-              }}>
-                One Year. Twelve Books.<br/>
-                <span style={{ color: "#D4A853" }}>One Deen.</span>
-              </h2>
+              <p style={{ fontSize: "11px", color: "rgba(212,168,83,0.5)", letterSpacing: "4px", textTransform: "uppercase", fontWeight: 700, marginBottom: "16px" }}>The Journey</p>
+              <h2 style={{ fontSize: "clamp(28px, 5vw, 44px)", fontWeight: 800, color: "#fff", lineHeight: 1.1 }}>One Year. Twelve Books.<br/><span style={{ color: "#D4A853" }}>One Deen.</span></h2>
             </div>
           </Reveal>
-
           <Reveal delay={100}>
             <div style={{ display: "flex", gap: "6px", justifyContent: "center", marginBottom: "48px" }}>
               {Array.from({ length: 12 }, (_, i) => (
-                <div key={i} style={{
-                  width: i === 0 ? "28px" : "12px", height: "4px", borderRadius: "2px",
-                  background: i === 0 ? "#D4A853" : i < 3 ? "rgba(212,168,83,0.25)" : "rgba(255,255,255,0.06)",
-                }} />
+                <div key={i} style={{ width: i === 0 ? "28px" : "12px", height: "4px", borderRadius: "2px", background: i === 0 ? "#D4A853" : i < 3 ? "rgba(212,168,83,0.25)" : "rgba(255,255,255,0.06)" }} />
               ))}
             </div>
           </Reveal>
-
           <Reveal delay={180}>
             <Book num={1} title="The Game of Life and How to Play It" status="live" featured />
           </Reveal>
-
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "14px", marginTop: "14px" }}>
             <Reveal delay={260}><Book num={2} title="Atomic Habits" status="soon" /></Reveal>
             <Reveal delay={340}><Book num={3} title="The 7 Habits of Highly Effective People" status="soon" /></Reveal>
           </div>
-
           <Reveal delay={420}>
             <div style={{ marginTop: "14px" }}>
               <Book num="4 – 12" status="locked" />
@@ -762,52 +622,18 @@ export default function App() {
       <section id="join" style={{ position: "relative", zIndex: 1, scrollMarginTop: "70px" }}>
         <Divider />
         <div style={{ maxWidth: "460px", margin: "0 auto", padding: "0 24px 100px", textAlign: "center" }}>
-
           <Reveal>
-            <h2 style={{
-              fontSize: "clamp(32px, 6vw, 48px)", fontWeight: 800, color: "#D4A853",
-              lineHeight: 1.1, marginBottom: "16px",
-            }}>Join The Walk</h2>
-            <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "15px", lineHeight: 1.6, marginBottom: "36px" }}>
-              A new book drops every month. Get it in your inbox the day it goes live. No spam. No courses. Just the next step.
-            </p>
+            <h2 style={{ fontSize: "clamp(32px, 6vw, 48px)", fontWeight: 800, color: "#D4A853", lineHeight: 1.1, marginBottom: "16px" }}>Join The Walk</h2>
+            <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "15px", lineHeight: 1.6, marginBottom: "36px" }}>A new book drops every month. Get it in your inbox the day it goes live. No spam. No courses. Just the next step.</p>
           </Reveal>
 
           <Reveal delay={150}>
             {status === "done" ? (
-              <div style={{
-                padding: "24px", background: "rgba(212,168,83,0.08)",
-                border: "1px solid rgba(212,168,83,0.25)", borderRadius: "12px",
-                color: "#D4A853", fontWeight: 600, fontSize: "16px",
-              }}>You're in. Welcome to the walk.</div>
+              <div style={{ padding: "24px", background: "rgba(212,168,83,0.08)", border: "1px solid rgba(212,168,83,0.25)", borderRadius: "12px", color: "#D4A853", fontWeight: 600, fontSize: "16px" }}>You're in. Welcome to the walk.</div>
             ) : (
               <div style={{ display: "flex", flexDirection: "column", gap: "10px", alignItems: "center" }}>
-                <input
-                  type="email" value={email} onChange={e => setEmail(e.target.value)}
-                  placeholder="your@email.com"
-                  onKeyDown={e => { if (e.key === "Enter") send(); }}
-                  style={{
-                    width: "100%", padding: "16px 20px",
-                    background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)",
-                    borderRadius: "8px", color: "#fff", fontSize: "16px",
-                    fontFamily: "'Outfit',sans-serif", outline: "none", transition: "border-color 0.3s",
-                  }}
-                  onFocus={e => e.target.style.borderColor = "rgba(212,168,83,0.5)"}
-                  onBlur={e => e.target.style.borderColor = "rgba(255,255,255,0.1)"}
-                />
-                <button onClick={send} disabled={status === "sending"} style={{
-                  width: "100%", padding: "16px",
-                  background: status === "sending" ? "rgba(212,168,83,0.4)" : "linear-gradient(135deg,#D4A853,#b8923d)",
-                  color: "#1a1a2e", border: "none", borderRadius: "8px",
-                  fontWeight: 700, fontSize: "15px", fontFamily: "'Outfit',sans-serif",
-                  cursor: status === "sending" ? "wait" : "pointer", transition: "transform 0.2s",
-                }}
-                onMouseEnter={e => { if (status !== "sending") e.currentTarget.style.transform = "scale(1.02)"; }}
-                onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
-                >
-                  {status === "sending" ? "..." : "Join"}
-                </button>
-                {status === "error" && <p style={{ color: "#c0392b", fontSize: "13px" }}>Something went wrong. Try again.</p>}
+                <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="your@email.com" onKeyDown={e => { if (e.key === "Enter") send(); }} style={{ width: "100%", padding: "16px 20px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "8px", color: "#fff", fontSize: "16px", fontFamily: "'Outfit',sans-serif", outline: "none" }} />
+                <button onClick={send} disabled={status === "sending"} style={{ width: "100%", padding: "16px", background: status === "sending" ? "rgba(212,168,83,0.4)" : "linear-gradient(135deg,#D4A853,#b8923d)", color: "#1a1a2e", border: "none", borderRadius: "8px", fontWeight: 700, fontSize: "15px", fontFamily: "'Outfit',sans-serif", cursor: status === "sending" ? "wait" : "pointer" }}>{status === "sending" ? "..." : "Join"}</button>
               </div>
             )}
           </Reveal>
@@ -815,24 +641,23 @@ export default function App() {
       </section>
 
       {/* ===== FOOTER ===== */}
-      <footer style={{
-        padding: "48px 24px", textAlign: "center",
-        borderTop: "1px solid rgba(255,255,255,0.04)", position: "relative", zIndex: 1,
-      }}>
-        <a href={IG} target="_blank" rel="noopener noreferrer" style={{
-          color: "rgba(212,168,83,0.6)", textDecoration: "none", fontSize: "14px",
-          fontWeight: 500, transition: "color 0.3s",
-        }}
-        onMouseEnter={e => e.currentTarget.style.color = "#D4A853"}
-        onMouseLeave={e => e.currentTarget.style.color = "rgba(212,168,83,0.6)"}
-        >@nurhabits</a>
-        <p style={{ marginTop: "14px", color: "rgba(255,255,255,0.2)", fontSize: "12px", fontWeight: 300 }}>
-          Built with ihsan from Cairo, Egypt.
-        </p>
-        <p style={{ marginTop: "6px", color: "rgba(255,255,255,0.1)", fontSize: "11px" }}>
-          &copy; 2026 NurHabits
-        </p>
+      <footer style={{ padding: "48px 24px", textAlign: "center", borderTop: "1px solid rgba(255,255,255,0.04)", position: "relative", zIndex: 1 }}>
+        <a href={IG} target="_blank" rel="noopener noreferrer" style={{ color: "rgba(212,168,83,0.6)", textDecoration: "none", fontSize: "14px", fontWeight: 500 }}>@nurhabits</a>
+        <p style={{ marginTop: "14px", color: "rgba(255,255,255,0.2)", fontSize: "12px", fontWeight: 300 }}>Built with ihsan from Cairo, Egypt.</p>
+        <p style={{ marginTop: "6px", color: "rgba(255,255,255,0.1)", fontSize: "11px" }}>&copy; 2026 NurHabits</p>
       </footer>
     </div>
+  );
+}
+
+// MAIN APP WITH ROUTING
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/walk" element={<Walk />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
