@@ -1,6 +1,4 @@
-// src/Walk.jsx — NurHabits Walk With Me Dashboard
-// Drop this file into your src/ folder
-
+// src/Walk.jsx — Updated to sync login state with the homepage
 import { useState, useEffect, useCallback } from "react";
 
 const SUPA = "https://opqddbhxbagayyfossua.supabase.co";
@@ -154,12 +152,16 @@ export default function Walk() {
         const ex=await sb(`profiles?username=eq.${u}`)||[];
         if(ex.length>0){setAErr("Username taken.");setBusy(false);return;}
         const cr=await sb("profiles","POST",{username:u,password_hash:pw});
-        if(cr&&cr.length>0){setUid(cr[0].id);setUser(u);setScr("pair");}
+        if(cr&&cr.length>0){
+          setUid(cr[0].id);setUser(u);setScr("pair");
+          localStorage.setItem("nurUser", u); // SYNC FOR HOMEPAGE
+        }
       }else{
         const pr=await sb(`profiles?username=eq.${u}`)||[];
         if(pr.length===0){setAErr("No account found.");setBusy(false);return;}
         if(pr[0].password_hash!==pw){setAErr("Wrong password.");setBusy(false);return;}
         setUid(pr[0].id);setUser(u);
+        localStorage.setItem("nurUser", u); // SYNC FOR HOMEPAGE
         const ps=await sb(`partnerships?or=(user_a.eq.${pr[0].id},user_b.eq.${pr[0].id})`)||[];
         if(ps.length>0){await load(pr[0].id);setScr("dashboard");}else setScr("pair");
       }
@@ -243,7 +245,7 @@ export default function Walk() {
       {settings&&<div style={{padding:"0 24px 16px"}}><div style={{background:"rgba(0,0,0,0.3)",borderRadius:12,padding:16,border:`1px solid ${C.bdr}`}}>
         <div style={{fontSize:12,color:C.dim,marginBottom:12}}>Signed in as <strong style={{color:C.gold}}>{user}</strong>{partner&&<span> · paired with <strong style={{color:C.teal}}>{partner}</strong></span>}</div>
         {!partner&&<button onClick={()=>{setSettings(false);setScr("pair");}} style={{border:`1px solid rgba(212,168,83,0.2)`,cursor:"pointer",fontFamily:"inherit",width:"100%",padding:10,borderRadius:8,background:C.goldDim,color:C.gold,fontSize:12,fontWeight:600,marginBottom:8}}>Find a companion</button>}
-        <button onClick={()=>{setUser("");setUid("");setScr("auth");setSettings(false);setTd({});setWk({});setPartner("");}} style={{border:`1px solid ${C.bdr}`,cursor:"pointer",fontFamily:"inherit",width:"100%",padding:10,borderRadius:8,background:"rgba(255,255,255,0.03)",color:C.dim,fontSize:12}}>Sign out</button>
+        <button onClick={()=>{setUser("");setUid("");setScr("auth");setSettings(false);setTd({});setWk({});setPartner("");localStorage.removeItem("nurUser");}} style={{border:`1px solid ${C.bdr}`,cursor:"pointer",fontFamily:"inherit",width:"100%",padding:10,borderRadius:8,background:"rgba(255,255,255,0.03)",color:C.dim,fontSize:12}}>Sign out</button>
       </div></div>}
 
       <div style={{padding:"8px 24px 20px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
