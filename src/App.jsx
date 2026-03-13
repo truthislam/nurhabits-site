@@ -1,6 +1,6 @@
-// src/App.jsx — Updated with "Walk" in the navigation
+// src/App.jsx — Updated with "Walk" as a gold button in the header
 import { useState, useEffect, useRef } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Walk from "./Walk";
 
 // ============================================================
@@ -211,21 +211,70 @@ function Home() {
         <span style={{
           fontSize: "14px", fontWeight: 700, color: "#D4A853", letterSpacing: "1px",
         }}>NURHABITS</span>
-        <div style={{ display: "flex", gap: "28px", alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "24px", alignItems: "center" }}>
           {[
             { label: "Blog", href: "https://nurhabits.substack.com/", external: true },
-            { label: "Walk", href: "/walk" },
+            { label: "Walk", href: "/walk", external: false, primary: true },
             { label: "Books", href: "#journey" },
             { label: "Join", href: "#join" },
-          ].map(link => (
-            <a key={link.label} href={link.href} target={link.external ? "_blank" : undefined} rel={link.external ? "noopener noreferrer" : undefined} style={{
-              color: "rgba(255,255,255,0.5)", textDecoration: "none",
-              fontSize: "13px", fontWeight: 500, letterSpacing: "0.5px", transition: "color 0.3s",
-            }}
-            onMouseEnter={e => e.currentTarget.style.color = "#D4A853"}
-            onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.5)"}
-            >{link.label}</a>
-          ))}
+          ].map(link => {
+            const style = link.primary ? {
+              background: "linear-gradient(135deg, #D4A853 0%, #b8923d 100%)",
+              color: "#1a1a2e",
+              padding: "8px 16px",
+              borderRadius: "6px",
+              fontWeight: 700,
+              fontSize: "12px",
+              textDecoration: "none",
+              letterSpacing: "0.5px",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease",
+            } : {
+              color: "rgba(255,255,255,0.5)",
+              textDecoration: "none",
+              fontSize: "13px",
+              fontWeight: 500,
+              letterSpacing: "0.5px",
+              transition: "color 0.3s",
+            };
+
+            return link.external ? (
+              <a 
+                key={link.label} 
+                href={link.href} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                style={style}
+                onMouseEnter={e => { if(!link.primary) e.currentTarget.style.color = "#D4A853"; }}
+                onMouseLeave={e => { if(!link.primary) e.currentTarget.style.color = "rgba(255,255,255,0.5)"; }}
+              >
+                {link.label}
+              </a>
+            ) : (
+              <a 
+                key={link.label} 
+                href={link.href} 
+                style={style}
+                onMouseEnter={e => { 
+                  if(link.primary) {
+                    e.currentTarget.style.transform = "translateY(-1px)";
+                    e.currentTarget.style.boxShadow = "0 4px 12px rgba(212,168,83,0.3)";
+                  } else {
+                    e.currentTarget.style.color = "#D4A853";
+                  }
+                }}
+                onMouseLeave={e => { 
+                  if(link.primary) {
+                    e.currentTarget.style.transform = "translateY(0)";
+                    e.currentTarget.style.boxShadow = "none";
+                  } else {
+                    e.currentTarget.style.color = "rgba(255,255,255,0.5)";
+                  }
+                }}
+              >
+                {link.label}
+              </a>
+            );
+          })}
         </div>
       </nav>
 
