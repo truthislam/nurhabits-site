@@ -1,6 +1,6 @@
-// src/App.jsx — Updated with "Walk" as a gold button in the header
+// src/App.jsx — Updated with "Walk" button + Profile icon
 import { useState, useEffect, useRef } from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Walk from "./Walk";
 
 // ============================================================
@@ -146,6 +146,13 @@ function Book({ num, title, status, featured }) {
 function Home() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState(null);
+  const [isLogged, setIsLogged] = useState(false);
+
+  // Check if someone is logged in on load
+  useEffect(() => {
+    const user = localStorage.getItem("nurUser");
+    if (user) setIsLogged(true);
+  }, []);
 
   const send = async () => {
     if (!email || !email.includes("@")) return;
@@ -212,69 +219,29 @@ function Home() {
           fontSize: "14px", fontWeight: 700, color: "#D4A853", letterSpacing: "1px",
         }}>NURHABITS</span>
         <div style={{ display: "flex", gap: "24px", alignItems: "center" }}>
-          {[
-            { label: "Blog", href: "https://nurhabits.substack.com/", external: true },
-            { label: "Walk", href: "/walk", external: false, primary: true },
-            { label: "Books", href: "#journey" },
-            { label: "Join", href: "#join" },
-          ].map(link => {
-            const style = link.primary ? {
+          
+          {/* Main Links */}
+          <a href="https://nurhabits.substack.com/" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: "13px", fontWeight: 500 }}>Blog</a>
+          
+          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            <a href="/walk" style={{
               background: "linear-gradient(135deg, #D4A853 0%, #b8923d 100%)",
-              color: "#1a1a2e",
-              padding: "8px 16px",
-              borderRadius: "6px",
-              fontWeight: 700,
-              fontSize: "12px",
-              textDecoration: "none",
-              letterSpacing: "0.5px",
-              transition: "transform 0.2s ease, box-shadow 0.2s ease",
-            } : {
-              color: "rgba(255,255,255,0.5)",
-              textDecoration: "none",
-              fontSize: "13px",
-              fontWeight: 500,
-              letterSpacing: "0.5px",
-              transition: "color 0.3s",
-            };
+              color: "#1a1a2e", padding: "8px 16px", borderRadius: "6px",
+              fontWeight: 700, fontSize: "12px", textDecoration: "none",
+            }}>Walk</a>
+            
+            {/* PROFILE ICON - ONLY SHOWS IF LOGGED IN */}
+            {isLogged && (
+              <a href="/walk" style={{ 
+                color: "#D4A853", fontSize: "18px", textDecoration: "none", 
+                background: "rgba(212,168,83,0.1)", width: "32px", height: "32px", 
+                borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center"
+              }}>👤</a>
+            )}
+          </div>
 
-            return link.external ? (
-              <a 
-                key={link.label} 
-                href={link.href} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                style={style}
-                onMouseEnter={e => { if(!link.primary) e.currentTarget.style.color = "#D4A853"; }}
-                onMouseLeave={e => { if(!link.primary) e.currentTarget.style.color = "rgba(255,255,255,0.5)"; }}
-              >
-                {link.label}
-              </a>
-            ) : (
-              <a 
-                key={link.label} 
-                href={link.href} 
-                style={style}
-                onMouseEnter={e => { 
-                  if(link.primary) {
-                    e.currentTarget.style.transform = "translateY(-1px)";
-                    e.currentTarget.style.boxShadow = "0 4px 12px rgba(212,168,83,0.3)";
-                  } else {
-                    e.currentTarget.style.color = "#D4A853";
-                  }
-                }}
-                onMouseLeave={e => { 
-                  if(link.primary) {
-                    e.currentTarget.style.transform = "translateY(0)";
-                    e.currentTarget.style.boxShadow = "none";
-                  } else {
-                    e.currentTarget.style.color = "rgba(255,255,255,0.5)";
-                  }
-                }}
-              >
-                {link.label}
-              </a>
-            );
-          })}
+          <a href="#journey" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: "13px", fontWeight: 500 }}>Books</a>
+          <a href="#join" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: "13px", fontWeight: 500 }}>Join</a>
         </div>
       </nav>
 
